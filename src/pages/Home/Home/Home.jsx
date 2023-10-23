@@ -1,6 +1,8 @@
+import Footer from "../../../shered/Footer/Footer";
 import Navbar from "../../../shered/Navbar/Navbar";
 import AboutHome from "../AboutHome/AboutHome";
 import Banner from "../Banner/Banner";
+import Contact from "../Contact/Contact";
 import Service from "../Service/Service";
 
 const Home = () => {
@@ -11,7 +13,9 @@ const Home = () => {
                 <Banner></Banner>
                 <AboutHome></AboutHome>
                 <Service></Service>
+                <Contact></Contact>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

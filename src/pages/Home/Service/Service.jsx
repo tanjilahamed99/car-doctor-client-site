@@ -24,6 +24,7 @@ const Service = () => {
                     service?.map(service => <DisplayService key={service._id} service={service}></DisplayService>)
                 }
             </div>
+            <button className="btn btn-outline text-[#FF3811] mx-auto flex my-10">More Services</button>
         </div>
     );
 };

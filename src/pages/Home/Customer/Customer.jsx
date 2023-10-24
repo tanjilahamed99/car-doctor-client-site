@@ -9,8 +9,8 @@ const Customer = () => {
             <p className="text-center text-[#737373] lg:px-[250px]">
                 the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
             </p>
-            <div className="grid grid-cols-2 items-center gap-10 mt-10 rounded-md">
-                <div className="p-10 border relative">
+            <div className="grid grid-cols-1 px-3 md:grid-cols-2 items-center gap-10 mt-10 rounded-md">
+                <div className="md:p-10 border relative p-5">
                     <div className="flex items-center gap-5">
                         <img className="w-14 h-14 rounded-full" src="https://i.ibb.co/9yxnvmG/joshua-rawson-harris-P2x-O3-EIk15-E-unsplash.jpg" alt="" />
                         <div >
@@ -26,9 +26,9 @@ const Customer = () => {
                         <FaStar className="text-xl text-[#FF912C]"></FaStar>
                         <FaStar className="text-xl text-[#FF912C]"></FaStar>
                     </div>
-                    <img className="w-10 absolute top-10 right-32" src={quote} alt="" />
+                    <img className="w-10 absolute top-10 lg:right-32 right-5" src={quote} alt="" />
                 </div>
-                <div className="p-10 border relative">
+                <div className="md:p-10 p-5 border relative">
                     <div className="flex items-center gap-5">
                         <img className="w-14 h-14 rounded-full" src="https://i.ibb.co/9yxnvmG/joshua-rawson-harris-P2x-O3-EIk15-E-unsplash.jpg" alt="" />
                         <div >
@@ -44,7 +44,7 @@ const Customer = () => {
                         <FaStar className="text-xl text-[#FF912C]"></FaStar>
                         <FaStar className="text-xl text-[#FF912C]"></FaStar>
                     </div>
-                    <img className="w-10 absolute top-10 right-32" src={quote} alt="" />
+                    <img className="w-10 absolute top-10 lg:right-32 right-5" src={quote} alt="" />
                 </div>
             </div>
         </div>

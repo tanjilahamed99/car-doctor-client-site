@@ -19,7 +19,7 @@ const Service = () => {
             <p className="text-center text-[#737373] lg:px-[250px]">
                 the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
             </p>
-            <div className="grid grid-cols-3 my-3 items-center gap-10">
+            <div className="grid lg:grid-cols-3 justify-center md:grid-cols-2 px-5 grid-cols-1 my-3 items-center gap-10">
                 {
                     service?.map(service => <DisplayService key={service._id} service={service}></DisplayService>)
                 }

@@ -14,7 +14,7 @@ const Products = () => {
                 the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
             </p>
 
-            <div className="grid grid-cols-3 gap-5 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 px-5 lg:grid-cols-3 gap-5 items-center">
                 <div className='text-center'>
                     <div className='p-10 bg-[#F3F3F3]'>
                         <img className='w-[200px] h-[200px] mx-auto' src={pro1} alt="" />

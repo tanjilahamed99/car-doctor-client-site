@@ -11,7 +11,7 @@ const Features = () => {
             <p className="text-center text-[#737373] lg:px-[250px]">
                 the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.
             </p>
-            <div className="grid grid-cols-5 justify-center items-center gap-3 mt-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5  xl:grid-cols-5 justify-center items-center gap-3 mt-5">
                 <div className='border-2 p-10 hover:bg-[#FF3811] hover:text-white'>
                     <img className='mx-auto h-16 w-16' src={person} alt="" />
                     <h2 className='font-bold text-lg text-center mt-2'>24/7 Support</h2>

@@ -3,6 +3,7 @@ import Root from "../Root/Root";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import Book from "../pages/Book/Book";
 
 const Routes = createBrowserRouter([
     {
@@ -18,8 +19,13 @@ const Routes = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/services/:id',
+                element: <Book></Book>,
+                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
             }
         ]
     }

@@ -1,14 +1,40 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg"
-import { FaShoppingBag,FaSearch } from "react-icons/fa";
+import { FaShoppingBag, FaSearch } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthPrivider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+
+    const { user, userLogOut } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        userLogOut()
+            .then(() => {
+                Swal.fire(
+                    'Good job!',
+                    'Successful logout',
+                    'success'
+                )
+            })
+            .catch(error => {
+                Swal.fire(
+                    'Good job!',
+                    error.message,
+                    'error'
+                )
+            })
+    }
+
+
     const ulLink = <>
-        <li><Link>Home</Link></li>
+        <li><Link to={'/'}>Home</Link></li>
         <li><Link>About</Link></li>
         <li><Link>Services</Link></li>
         <li><Link>Blog</Link></li>
         <li><Link>Contact</Link></li>
+        <li>{user ? <button onClick={handleLogout}>logout</button> : <Link to={'/login'}>Login</Link>}</li>
     </>
     return (
         <div className="navbar bg-base-100 ">

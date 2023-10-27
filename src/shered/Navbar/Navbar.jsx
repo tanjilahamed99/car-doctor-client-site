@@ -34,6 +34,11 @@ const Navbar = () => {
         <li><Link>Services</Link></li>
         <li><Link>Blog</Link></li>
         <li><Link>Contact</Link></li>
+        {
+
+            user && <li><Link to={'/bookings'}>My bookings</Link></li>
+
+        }
         <li>{user ? <button onClick={handleLogout}>logout</button> : <Link to={'/login'}>Login</Link>}</li>
     </>
     return (

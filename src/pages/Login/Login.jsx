@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/login/login.svg'
 import Navbar from '../../shered/Navbar/Navbar';
 import { useContext } from 'react';
@@ -7,6 +7,10 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
     const { loginUser } = useContext(AuthContext)
+
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -22,6 +26,9 @@ const Login = () => {
                     'Successful create account',
                     'success'
                 )
+                {
+                    location.state ? navigate(location.state) : navigate('/')
+                }
             })
             .catch(error => {
                 Swal.fire(

@@ -4,13 +4,13 @@ import Navbar from '../../shered/Navbar/Navbar';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthPrivider/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 const Login = () => {
 
     const { loginUser } = useContext(AuthContext)
 
     const location = useLocation()
     const navigate = useNavigate()
-    console.log(location)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -18,17 +18,20 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
+        const user = { user: email }
 
         loginUser(email, password)
             .then(() => {
                 Swal.fire(
                     'Good job!',
-                    'Successful create account',
+                    'Successful login',
                     'success'
                 )
-                {
-                    location.state ? navigate(location.state) : navigate('/')
-                }
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(() => {
+                        location.state ? navigate(location.state) : navigate('/')
+                    })
+
             })
             .catch(error => {
                 Swal.fire(

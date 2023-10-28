@@ -3,6 +3,7 @@ import Footer from "../../shered/Footer/Footer";
 import Navbar from "../../shered/Navbar/Navbar";
 import { AuthContext } from "../../AuthPrivider/AuthProvider";
 import DisplayBookings from "./DisplayBookings";
+import axios from "axios";
 
 const MyBookings = () => {
     const [bookings, setBookings] = useState([])
@@ -10,9 +11,8 @@ const MyBookings = () => {
     const { user } = useContext(AuthContext)
     const url = `http://localhost:5000/booking?email=${user.email}`
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => setBookings(data))
+    axios(url, { withCredentials: true })
+        .then(res => setBookings(res.data))
 
     return (
         <div>
@@ -37,9 +37,9 @@ const MyBookings = () => {
                     </thead>
                     <tbody>
                         {/* row 1 */}
-                       {
-                        bookings.map(booking=><DisplayBookings key={booking._id} bookings={booking}></DisplayBookings>)
-                       }
+                        {
+                            bookings.map(booking => <DisplayBookings key={booking._id} bookings={booking}></DisplayBookings>)
+                        }
                     </tbody>
                 </table>
             </div>

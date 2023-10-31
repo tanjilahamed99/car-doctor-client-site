@@ -18,7 +18,7 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        const user = { user: email }
+        const user = { email }
 
         loginUser(email, password)
             .then(() => {
@@ -27,10 +27,10 @@ const Login = () => {
                     'Successful login',
                     'success'
                 )
+                location.state ? navigate(location.state) : navigate('/')
+
                 axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
-                    .then(() => {
-                        location.state ? navigate(location.state) : navigate('/')
-                    })
+                    .then(res => console.log(res.data))
 
             })
             .catch(error => {

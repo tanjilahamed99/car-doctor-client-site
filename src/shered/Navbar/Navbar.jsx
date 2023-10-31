@@ -4,10 +4,11 @@ import { FaShoppingBag, FaSearch } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthPrivider/AuthProvider";
 import Swal from "sweetalert2";
-
+import axios from "axios";
 const Navbar = () => {
 
     const { user, userLogOut } = useContext(AuthContext)
+    const userEmail = user?.email
 
     const handleLogout = () => {
         userLogOut()
@@ -17,6 +18,8 @@ const Navbar = () => {
                     'Successful logout',
                     'success'
                 )
+                axios.post('http://localhost:5000/logout', userEmail, { withCredentials: true })
+                    .then(res => console.log(res.data))
             })
             .catch(error => {
                 Swal.fire(

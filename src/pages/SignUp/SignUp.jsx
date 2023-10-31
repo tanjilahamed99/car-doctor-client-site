@@ -54,7 +54,7 @@ const SignUp = () => {
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text">Name</span>
                                 </label>
                                 <input name='name' type="text" placeholder="name" className="input input-bordered" required />
                             </div>

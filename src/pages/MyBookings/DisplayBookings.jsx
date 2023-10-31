@@ -1,43 +1,11 @@
 import PropTypes from 'prop-types';
 import { AiFillDelete } from "react-icons/ai";
-import Swal from 'sweetalert2';
-const DisplayBookings = ({ bookings }) => {
+const DisplayBookings = ({ bookings,handleDelete }) => {
 
     const { _id, img, name, email, date, price } = bookings
 
 
-    const handleDelete = id => {
-
-
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/booking/${id}`, {
-                    method: "DELETE"
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            Swal.fire(
-                                'Good job!',
-                                'Successful deleted',
-                                'success'
-                            )
-                        }
-                    })
-            }
-        })
-
-
-    }
-
+   
 
     return (
         <tr>
@@ -69,7 +37,8 @@ const DisplayBookings = ({ bookings }) => {
 };
 
 DisplayBookings.propTypes = {
-    bookings: PropTypes.object
+    bookings: PropTypes.object,
+    handleDelete: PropTypes.func
 };
 
 export default DisplayBookings;
